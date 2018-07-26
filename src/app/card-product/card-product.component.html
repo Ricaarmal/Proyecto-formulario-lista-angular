@@ -2,15 +2,15 @@
 [queryParams]="{size: 'XL', color: 'red', discount: '20%'}"
 [routerLink]="['/detail', produto._id]">  <!-- Esto es un param para poner un query se necesita poner query params -->
 <div>
-  <img width="50px" src="{{produto.pic || 'https://images.tcdn.com.br/appstore/appstore/118/img/embalagem_de_produto223_1_.png'}}" alt="">
+  <img width="50px" src="{{produto.image || 'https://images.tcdn.com.br/appstore/appstore/118/img/embalagem_de_produto223_1_.png'}}" alt="">
   <h2>
     {{produto.name}}
   </h2>
   <p>
-    {{produto.mass}}
+    {{produto.brand}}
   </p>
-  <button (click)="onAddCart()">
-    {{produto.skin_color}}
+  <button *ngFor="let spec of produto.specs" (click)="onAddCart()">
+    {{spec}}
   </button>
 </div>
 </a>

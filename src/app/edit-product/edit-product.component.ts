@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ProductListService } from '../product-list.service'
+import { PhonesService } from '../services/phones.service'
 
 @Component({
   selector: 'app-edit-product',
@@ -14,19 +15,23 @@ export class EditProductComponent implements OnInit {
 
   constructor(private activatedRoute: ActivatedRoute,
   private service: ProductListService,
-  private route: Router  
+  private route: Router,
+  private phoneService: PhonesService  
 ) { }
 
   ngOnInit() {
     this.id = this.activatedRoute.parent.snapshot.params.id
    
-    this.producto = this.service.getOneProduct(this.id)
+    this.phoneService.getOnePhone(this.id)
+    .subscribe(phone=>{
+      this.producto = phone
+    })
   }
 
-  saveProducto(producto){
+  saveProducto(){
     if(!window.confirm('Are you Sure?')) return
-    this.service.updateProduct(producto)
-    .then(()=>{
+    this.phoneService.editOnePhone(this.producto)
+    .subscribe(()=>{
     this.route.navigate(['products'])
     })
   }

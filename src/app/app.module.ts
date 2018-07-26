@@ -16,7 +16,8 @@ import { routes } from './routes'
 //services
 import { ProductListService } from './product-list.service';
 import { EditProductComponent } from './edit-product/edit-product.component'
-
+import { PhonesService } from './services/phones.service';
+import { NewProductComponent } from './new-product/new-product.component'
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import { EditProductComponent } from './edit-product/edit-product.component'
     SignupFormComponent,
     ProductPageComponent,
     DetailComponent,
-    EditProductComponent
+    EditProductComponent,
+    NewProductComponent
   ],
   imports: [
     BrowserModule,
@@ -33,7 +35,7 @@ import { EditProductComponent } from './edit-product/edit-product.component'
     RouterModule.forRoot(routes), //Jalando las rutas
     HttpModule
   ],
-  providers: [ProductListService], //Esta es la forma 2
+  providers: [ProductListService, PhonesService], //Esta es la forma 2
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { ProductListService } from '../product-list.service'
 import { query } from '@angular/core/src/render3/query';
+import { PhonesService } from '../services/phones.service'
 
 @Component({
   selector: 'app-detail',
@@ -13,7 +14,9 @@ export class DetailComponent implements OnInit {
   id: any;
   producto: any;
   constructor(private activeRoute: ActivatedRoute, 
-  private servie: ProductListService) { }
+  private servie: ProductListService,
+  private phoneService: PhonesService
+) {}
 
   ngOnInit() {
     this.activeRoute.params
@@ -21,7 +24,10 @@ export class DetailComponent implements OnInit {
       console.log(params.id)
       this.id = params.id
 
-      this.producto = this.servie.getOneProduct(this.id)
+      this.phoneService.getOnePhone(this.id)
+      .subscribe(phone=>{
+        this.producto = phone
+      })
       console.log(this.producto)
     })
 

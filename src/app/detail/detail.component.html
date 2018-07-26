@@ -1,10 +1,14 @@
+<img [src]="producto.img"  [alt]="producto.name">
 <p>
   detail works!
   Este es el detalle del {{id}}
-  {{producto.name}} - {{producto.describe}}
+  {{producto.name}} - {{producto.brand}}
 </p>
 
 <a [routerLink]="['edit']">Editar</a>  <!-- CUando es una ruta hija no debes dar un slash -->
    
+
+<button *ngFor="let spec  of producto.specs" ></button>
+
 
 <router-outlet></router-outlet>
