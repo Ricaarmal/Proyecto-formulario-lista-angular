@@ -2,6 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { RouterModule, Routes } from '@angular/router'
+import { HttpModule } from '@angular/http'
 
 import { AppComponent } from './app.component';
 import { SignupFormComponent } from './signup-form/signup-form.component';
@@ -29,7 +30,8 @@ import { EditProductComponent } from './edit-product/edit-product.component'
   imports: [
     BrowserModule,
     FormsModule,
-    RouterModule.forRoot(routes) //Jalando las rutas
+    RouterModule.forRoot(routes), //Jalando las rutas
+    HttpModule
   ],
   providers: [ProductListService], //Esta es la forma 2
   bootstrap: [AppComponent]

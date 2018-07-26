@@ -7,8 +7,8 @@
 
   <div *ngFor="let p of productosa">
     <ul>
-      <li>{{p.name}}</li>
-      <span>{{p.price | currency: "MXN"}}</span>
+      <li>{{characters.name}}</li>
+      <span>{{characters.skin_color}}</span>
     </ul>
   </div>
 
@@ -16,7 +16,7 @@
   
 <div>
   
-  <app-card-product (addCard)="showProduct($event)" *ngFor="let prod of productos" [produto]="prod"></app-card-product>
+  <app-card-product (addCard)="showProduct($event)" *ngFor="let prod of characters" [produto]="prod"></app-card-product>
   
 </div>
 
