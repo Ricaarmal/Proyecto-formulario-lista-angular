@@ -1,0 +1,12 @@
+<div>
+<input type="text" [(ngModel)]="producto.name">
+<br>
+<input type="number" [(ngModel)]="producto.price">
+<br>
+<textarea [(ngModel)]="producto.describe"> </textarea>
+<br>
+<input type="text" [(ngModel)]="producto.pic">
+<br>
+
+<button (click)="saveProducto(producto)">Actualizar</button>
+</div>

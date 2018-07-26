@@ -1,0 +1,23 @@
+<nav>
+  <h1>Titulo del E-Commerce</h1>
+</nav>
+
+
+<section>
+
+  <div *ngFor="let p of productosa">
+    <ul>
+      <li>{{p.name}}</li>
+      <span>{{p.price | currency: "MXN"}}</span>
+    </ul>
+  </div>
+
+  <h2>Productos</h2>
+  
+<div>
+  
+  <app-card-product (addCard)="showProduct($event)" *ngFor="let prod of productos" [produto]="prod"></app-card-product>
+  
+</div>
+
+</section>

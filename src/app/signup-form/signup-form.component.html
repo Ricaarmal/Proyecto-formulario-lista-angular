@@ -1,0 +1,46 @@
+<h1>{{bliss | json}}</h1>
+
+<section>
+  
+  <form  #signupBliss="ngForm" (ngSubmit)="recibiendoElForm(signupBliss)" >
+    <p>
+      Tu nombre:
+      <input required name="username" [(ngModel)]="username" placeholder="Username" type="text">
+    </p>
+    
+    <p>
+      Tu correo:
+      <input required name="email" [(ngModel)]="correo" type="email" placeholder="Tu correo">
+    </p>
+    
+    <p>
+      Tu password:
+      <input #myPassword="ngModel" required name="password" [(ngModel)]="password" type="password" placeholder="Tu password">
+    </p>
+
+    <div *ngIf="myPassword.errors && (myPassword.dirty || myPassword.touched)">
+      <p style="background-color: red; color:white" [hidden]="!myPassword.errors.required">
+        Password is required
+      </p>
+    </div>
+
+    <p>
+      <input #myPassword2="ngModel" required name="password2" [(ngModel)]="password2" type="password" placeholder="repite password">
+    </p>
+
+    <div *ngIf= "myPassword.value !== myPassword2.value">
+      <p required style="background-color: red; color:white" [hidden]="!myPassword.errors.required">
+        Password is not the same
+      </p>
+    </div>
+
+    <input type="submit">
+
+
+  </form>
+
+</section>
+
+
+
+<!-- ngNativeValidate Para hacer requerido los campos -->
